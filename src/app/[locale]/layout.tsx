@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import { locales, localeDirections, type Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/getDictionary";
 import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
+import WhatsAppFloatingButton from "@/components/ui/WhatsAppFloatingButton";
 
 export const metadata: Metadata = {
   title: "OrliCode — Premium Software Solutions",
@@ -24,6 +26,7 @@ export default async function RootLayout({
   const locale = (locales as readonly string[]).includes(rawLocale)
     ? (rawLocale as Locale)
     : "en";
+  const dict = await getDictionary(locale);
 
   return (
     <html lang={locale} dir={localeDirections[locale]}>
@@ -40,6 +43,7 @@ export default async function RootLayout({
       </head>
       <body>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <WhatsAppFloatingButton label={dict.contact.whatsapp_label} />
       </body>
     </html>
   );
