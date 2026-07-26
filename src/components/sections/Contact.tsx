@@ -6,9 +6,11 @@ import { FiMail, FiPhone, FiArrowRight } from "react-icons/fi";
 import Container from "@/components/ui/Container";
 import AnimatedButton from "@/components/ui/AnimatedButton";
 import type { Dictionary } from "@/i18n/getDictionary";
+import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 export default function Contact({ dict }: { dict: Dictionary }) {
   const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: "", company: "", email: "", service: "", message: "" });
   const f = dict.contact.form;
 
   const services = [
@@ -17,8 +19,23 @@ export default function Contact({ dict }: { dict: Dictionary }) {
     "Cloud Solutions", "Custom Software", "Other",
   ];
 
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
+
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    const message = [
+      `*${f.name}:* ${form.name}`,
+      `*${f.company}:* ${form.company}`,
+      `*${f.email}:* ${form.email}`,
+      `*${f.service}:* ${form.service}`,
+      `*${f.message}:* ${form.message}`,
+    ].join("\n");
+
+    window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
     setSubmitted(true);
   }
 
@@ -85,13 +102,16 @@ export default function Contact({ dict }: { dict: Dictionary }) {
             <>
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {[
-                  { placeholder: f.name, type: "text" },
-                  { placeholder: f.company, type: "text" },
+                  { name: "name", placeholder: f.name, type: "text" },
+                  { name: "company", placeholder: f.company, type: "text" },
                 ].map((field) => (
                   <input
-                    key={field.placeholder}
+                    key={field.name}
                     required
+                    name={field.name}
                     type={field.type}
+                    value={form[field.name as "name" | "company"]}
+                    onChange={handleChange}
                     placeholder={field.placeholder}
                     className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm text-ink placeholder:text-ink-faint focus:border-brand-violet/50 focus:outline-none focus:bg-white/[0.05] transition-colors duration-200"
                   />
@@ -99,11 +119,18 @@ export default function Contact({ dict }: { dict: Dictionary }) {
               </div>
               <input
                 required
+                name="email"
                 type="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder={f.email}
                 className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm text-ink placeholder:text-ink-faint focus:border-brand-violet/50 focus:outline-none transition-colors duration-200"
               />
               <select
+                required
+                name="service"
+                value={form.service}
+                onChange={handleChange}
                 className="rounded-xl border border-white/10 bg-bg px-4 py-3.5 text-sm text-ink-muted focus:border-brand-violet/50 focus:outline-none transition-colors duration-200"
               >
                 <option value="">{f.service}</option>
@@ -111,7 +138,10 @@ export default function Contact({ dict }: { dict: Dictionary }) {
               </select>
               <textarea
                 required
+                name="message"
                 rows={5}
+                value={form.message}
+                onChange={handleChange}
                 placeholder={f.message}
                 className="resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3.5 text-sm text-ink placeholder:text-ink-faint focus:border-brand-violet/50 focus:outline-none transition-colors duration-200"
               />
