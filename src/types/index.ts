@@ -6,6 +6,28 @@ export interface ProjectLinks {
   appStore?: string;
 }
 
+export interface LocalizedText {
+  en: string;
+  ar: string;
+}
+
+// Raw project data as authored in src/data/projects.ts — title/description
+// carry both languages so the site can switch with the active locale.
+export interface RawProject {
+  id: string;
+  category: ProjectCategory;
+  title: LocalizedText;
+  description: LocalizedText;
+  longDescription?: LocalizedText;
+  image: string;
+  tech: string[];
+  tags: string[];
+  year: string;
+  featured?: boolean;
+  links?: ProjectLinks;
+}
+
+// Resolved project for a single locale — what the UI components consume.
 export interface Project {
   id: string;
   category: ProjectCategory;

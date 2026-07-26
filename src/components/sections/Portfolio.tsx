@@ -10,6 +10,7 @@ import AnimatedButton from "@/components/ui/AnimatedButton";
 import ProjectModal from "@/components/ui/ProjectModal";
 import { projectsByCategory } from "@/data/projects";
 import type { Dictionary } from "@/i18n/getDictionary";
+import type { Locale } from "@/i18n/config";
 import type { PortfolioCategory, Project } from "@/types";
 import { FiArrowUpRight } from "react-icons/fi";
 
@@ -121,14 +122,16 @@ function CategoryPanel({
   panelIndex,
   total,
   onView,
+  locale,
 }: {
   cat: PortfolioCategory;
   viewLabel: string;
   panelIndex: number;
   total: number;
   onView: (project: Project) => void;
+  locale: Locale;
 }) {
-  const projects = projectsByCategory(cat.id);
+  const projects = projectsByCategory(cat.id, locale);
 
   return (
     <div
@@ -205,7 +208,7 @@ function CategoryPanel({
 }
 
 // ── Main Portfolio Section ────────────────────────────────────────────────
-export default function Portfolio({ dict }: { dict: Dictionary }) {
+export default function Portfolio({ dict, locale }: { dict: Dictionary; locale: Locale }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const categories = dict.portfolio.categories as PortfolioCategory[];
   const viewLabel = dict.portfolio.view_project;
@@ -337,6 +340,7 @@ export default function Portfolio({ dict }: { dict: Dictionary }) {
               panelIndex={i}
               total={categories.length}
               onView={handleView}
+              locale={locale}
             />
           </div>
         ))}
