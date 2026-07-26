@@ -76,12 +76,6 @@ export default function Contact({ dict }: { dict: Dictionary }) {
             ))}
           </div>
 
-          {/* Closing note */}
-          <div className="rounded-2xl border border-brand-violet/20 bg-brand-violet/[0.06] p-6">
-            <p className="text-sm leading-relaxed text-ink-muted">
-              Every inquiry is reviewed by a <span className="text-ink font-medium">senior engineer</span>, not a sales representative. Expect a substantive, technical response — not a generic follow-up.
-            </p>
-          </div>
         </div>
 
         {/* Right: form */}
