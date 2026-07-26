@@ -1,0 +1,250 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "work": "Portfolio",
+    "process": "Our Process",
+    "contact": "Contact Us",
+    "cta": "Start Your Project"
+  },
+  "hero": {
+    "eyebrow": "Your Technology Partner for Digital Solutions",
+    "title_l1": "We Build",
+    "title_l2": "Software That",
+    "title_l3": "Drives Growth.",
+    "subtitle": "OrliCode is a software development company specializing in mobile applications, web platforms, ERP systems, SaaS products, AI-powered solutions, and custom software. We help businesses transform ideas into scalable digital products built for long-term success.",
+    "cta_primary": "Explore Our Work",
+    "cta_secondary": "Start Your Project",
+    "stat_1_value": "50+",
+    "stat_1_label": "Projects Delivered",
+    "stat_2_value": "15+",
+    "stat_2_label": "Business Partners",
+    "stat_3_value": "100%",
+    "stat_3_label": "Commitment to Quality"
+  },
+  "marquee": {
+    "items": [
+      "Mobile Applications",
+      "Web Platforms",
+      "ERP Systems",
+      "SaaS Platforms",
+      "AI Solutions",
+      "Cloud Infrastructure",
+      "UI/UX Design",
+      "API Integrations"
+    ]
+  },
+  "about": {
+    "eyebrow": "About OrliCode",
+    "title": "Building software that helps businesses grow.",
+    "body": "At OrliCode, we believe software is more than code. It is a strategic investment that improves operations, enhances customer experiences, and accelerates business growth. We partner with startups, entrepreneurs, and enterprises to build secure, scalable, and high-performance digital products.",
+    "stat_years_label": "Years of Experience",
+    "stat_projects_label": "Projects Delivered",
+    "stat_clients_label": "Happy Clients",
+    "stat_team_label": "Technology Specialists"
+  },
+  "services": {
+    "eyebrow": "Our Services",
+    "title": "End-to-end software solutions tailored to your business.",
+    "items": [
+      {
+        "icon": "mobile",
+        "title": "Mobile App Development",
+        "description": "Native and cross-platform mobile applications that deliver exceptional performance and seamless user experiences."
+      },
+      {
+        "icon": "web",
+        "title": "Web Development",
+        "description": "Modern, scalable web applications and platforms designed to support business growth and digital transformation."
+      },
+      {
+        "icon": "dashboard",
+        "title": "Dashboards & Admin Panels",
+        "description": "Powerful dashboards that provide real-time insights, analytics, and complete operational control."
+      },
+      {
+        "icon": "erp",
+        "title": "ERP Systems",
+        "description": "Custom enterprise resource planning systems that connect departments and streamline business operations."
+      },
+      {
+        "icon": "saas",
+        "title": "SaaS Platforms",
+        "description": "Cloud-based software platforms built to scale, monetize, and support thousands of users."
+      },
+      {
+        "icon": "ai",
+        "title": "AI Solutions",
+        "description": "Artificial intelligence solutions that automate workflows, improve decision-making, and unlock business insights."
+      },
+      {
+        "icon": "design",
+        "title": "UI/UX Design",
+        "description": "Modern interfaces and intuitive user experiences designed to strengthen your brand and maximize engagement."
+      },
+      {
+        "icon": "cloud",
+        "title": "Cloud Infrastructure",
+        "description": "Reliable cloud architecture, deployment, and server management built for security, scalability, and performance."
+      },
+      {
+        "icon": "api",
+        "title": "API Integrations",
+        "description": "Seamless integration with payment gateways, maps, messaging services, CRMs, ERPs, and third-party platforms."
+      },
+      {
+        "icon": "custom",
+        "title": "Custom Software Development",
+        "description": "Tailor-made software engineered specifically around your business goals, workflows, and operational needs."
+      }
+    ]
+  },
+  "portfolio": {
+    "eyebrow": "Our Portfolio",
+    "headline": "Projects we're proud to build.",
+    "intro": "Every project starts with understanding the business before writing a single line of code. Explore our work by category and discover how we deliver solutions across different industries and technologies.",
+    "categories": [
+      {
+        "id": "mobile",
+        "number": "01",
+        "title": "Mobile Applications",
+        "description": "High-performance mobile apps crafted to deliver intuitive experiences across iOS and Android.",
+        "accent": "#7C5CFC",
+        "bg": "#08050F"
+      },
+      {
+        "id": "web",
+        "number": "02",
+        "title": "Websites",
+        "description": "Scalable web platforms that empower businesses with speed, flexibility, and outstanding user experiences.",
+        "accent": "#00D4FF",
+        "bg": "#04111A"
+      },
+      {
+        "id": "dashboard",
+        "number": "03",
+        "title": "Dashboard Systems",
+        "description": "Smart dashboards that simplify operations, monitor performance, and support better decision-making.",
+        "accent": "#10B981",
+        "bg": "#041210"
+      },
+      {
+        "id": "erp",
+        "number": "04",
+        "title": "ERP Solutions",
+        "description": "Enterprise systems designed to unify operations, automate workflows, and improve efficiency.",
+        "accent": "#F59E0B",
+        "bg": "#120B02"
+      },
+      {
+        "id": "ai",
+        "number": "05",
+        "title": "AI Solutions",
+        "description": "AI-powered products that automate processes, analyze data, and create smarter business experiences.",
+        "accent": "#E040FB",
+        "bg": "#0F0414"
+      }
+    ],
+    "view_project": "View Project",
+    "modal_visit_website": "Visit Website",
+    "modal_google_play": "Google Play",
+    "modal_app_store": "App Store",
+    "modal_tech_stack": "Tech Stack",
+    "modal_year": "Year",
+    "modal_start_project": "Start a Similar Project",
+    "modal_close": "Close",
+    "modal_featured": "Featured"
+  },
+  "process": {
+    "eyebrow": "Our Process",
+    "title": "A clear path from idea to launch.",
+    "steps": [
+      {
+        "title": "Discovery",
+        "description": "We learn about your business, objectives, and project requirements before planning the right solution."
+      },
+      {
+        "title": "Planning & Architecture",
+        "description": "We define the system architecture, technology stack, and development roadmap to ensure scalability."
+      },
+      {
+        "title": "UI/UX Design",
+        "description": "We design intuitive interfaces and engaging user experiences that align with your brand and business goals."
+      },
+      {
+        "title": "Development",
+        "description": "Our engineers build your solution using modern technologies, clean architecture, and industry best practices."
+      },
+      {
+        "title": "Testing & Launch",
+        "description": "Comprehensive testing ensures reliability, security, and performance before your product goes live."
+      },
+      {
+        "title": "Support & Growth",
+        "description": "After launch, we continue supporting, maintaining, and evolving your product as your business grows."
+      }
+    ]
+  },
+  "technologies": {
+    "eyebrow": "Technology Stack",
+    "title": "Modern technologies powering scalable digital products."
+  },
+  "testimonials": {
+    "eyebrow": "Client Testimonials",
+    "title": "The trust of our clients is our greatest achievement."
+  },
+  "faq": {
+    "eyebrow": "Frequently Asked Questions",
+    "title": "Everything you need to know before starting your project.",
+    "items": [
+      {
+        "question": "How can I request a quotation?",
+        "answer": "Share your project details through our contact form or reach out directly. Our team will review your requirements and get back to you within one business day."
+      },
+      {
+        "question": "How long does a project usually take?",
+        "answer": "Project timelines vary depending on scope and complexity. After understanding your requirements, we provide a detailed timeline covering every development stage."
+      },
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Yes. We collaborate with startups and businesses across Saudi Arabia, the GCC, and clients worldwide."
+      },
+      {
+        "question": "Can you improve an existing system?",
+        "answer": "Absolutely. We can audit, modernize, optimize, and expand existing software while maintaining business continuity."
+      },
+      {
+        "question": "Do you provide post-launch support?",
+        "answer": "Yes. We offer ongoing maintenance, technical support, performance monitoring, and continuous feature development."
+      },
+      {
+        "question": "Who owns the source code after delivery?",
+        "answer": "Once the project is completed and delivered, full ownership of the source code and intellectual property is transferred according to the agreed contract."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Start Your Project",
+    "title": "Ready to bring your idea to life?",
+    "subtitle": "Tell us about your project and one of our consultants will contact you within one business day.",
+    "form": {
+      "name": "Full Name",
+      "company": "Company Name",
+      "email": "Business Email",
+      "service": "Required Service",
+      "message": "Tell us about your project",
+      "submit": "Send Request",
+      "success": "Thank you. We've received your request and will contact you soon."
+    },
+    "email_label": "Email",
+    "phone_label": "Phone"
+  },
+  "footer": {
+    "tagline": "Building premium software solutions that help businesses grow with confidence.",
+    "rights": "All rights reserved © OrliCode.",
+    "nav_title": "Company",
+    "services_title": "Services",
+    "contact_title": "Contact"
+  }
+}

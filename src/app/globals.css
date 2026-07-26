@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: auto; /* Lenis handles this */
+    background-color: #06060F;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-bg text-ink overflow-x-hidden;
+  }
+
+  /* Arabic locale uses Cairo for everything */
+  [lang="ar"] body,
+  [dir="rtl"] body {
+    font-family: var(--font-cairo), system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: rgba(124, 92, 252, 0.35);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid #7C5CFC;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #06060F; }
+  ::-webkit-scrollbar-thumb { background: #1E1C3A; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #302D5A; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  /* Portfolio panel — each one is a sticky "card" */
+  .portfolio-panel {
+    position: sticky;
+    top: 0;
+    min-height: 100vh;
+    will-change: transform;
+    transform-origin: top center;
+  }
+
+  /* Clip-path reveal utility */
+  .clip-reveal {
+    clip-path: inset(0 0 100% 0);
+  }
+  .clip-reveal-done {
+    clip-path: inset(0 0 0% 0);
+  }
+
+  /* Number display style */
+  .num-display {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" on;
+  }
+}
+
+/* Font-family bindings — mirrors next/font variable names so components work identically
+   whether fonts are loaded via <link> (dev/sandbox) or next/font/google (production). */
+:root {
+  --font-jakarta: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-cairo: "Cairo", system-ui, sans-serif;
+}
+
+.font-jakarta {
+  font-family: var(--font-jakarta);
+}
+
+/* Arabic locale: Cairo for all text */
+[lang="ar"] body,
+[dir="rtl"] body {
+  font-family: var(--font-cairo) !important;
+}
+[lang="ar"] .font-jakarta,
+[dir="rtl"] .font-jakarta {
+  font-family: var(--font-cairo) !important;
+}

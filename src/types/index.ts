@@ -1,0 +1,55 @@
+export type ProjectCategory = "web" | "mobile" | "dashboard" | "erp" | "ai" | "custom";
+
+export interface ProjectLinks {
+  website?: string;
+  playStore?: string;
+  appStore?: string;
+}
+
+export interface Project {
+  id: string;
+  category: ProjectCategory;
+  title: string;
+  description: string;
+  image: string;
+  tech: string[];
+  tags: string[];
+  year: string;
+  featured?: boolean;
+  links?: ProjectLinks;
+  longDescription?: string;
+}
+
+export interface PortfolioCategory {
+  id: string;
+  number: string;
+  title: string;
+  description: string;
+  accent: string;
+  bg: string;
+}
+
+export interface ServiceItem {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+  avatar: string;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface ProcessStep {
+  title: string;
+  description: string;
+}
