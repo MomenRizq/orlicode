@@ -1,0 +1,54 @@
+From 0dd6538225ff3d315bd572167c03d206ba7fa212 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 26 Jul 2026 11:35:54 +0000
+Subject: [PATCH] fix: fall back to native scroll on touch devices in portfolio
+ section
+
+Lenis smooth-scroll and the GSAP scrub-linked panel slide-up animation
+both assume a stable viewport height. On mobile, the browser's address
+bar collapsing/expanding mid-scroll desyncs the animation from actual
+scroll position, leaving a large dead scroll zone between portfolio
+panels. Touch devices now skip both and use plain native scrolling.
+---
+ src/components/layout/SmoothScrollProvider.tsx | 6 ++++++
+ src/components/sections/Portfolio.tsx          | 7 +++++++
+ 2 files changed, 13 insertions(+)
+
+diff --git a/src/components/layout/SmoothScrollProvider.tsx b/src/components/layout/SmoothScrollProvider.tsx
+index 07efa1d..0470365 100644
+--- a/src/components/layout/SmoothScrollProvider.tsx
++++ b/src/components/layout/SmoothScrollProvider.tsx
+@@ -13,6 +13,12 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
+   useEffect(() => {
+     if (typeof window === "undefined") return;
+     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
++    const isTouch = window.matchMedia("(pointer: coarse)").matches;
++
++    // Touch devices keep native scrolling — Lenis's momentum fights the
++    // browser's own rubber-banding and dynamic address bar, which desyncs
++    // scroll position from GSAP ScrollTrigger and leaves dead scroll zones.
++    if (prefersReduced || isTouch) return;
+ 
+     const lenis = new Lenis({
+       duration: 1.2,
+diff --git a/src/components/sections/Portfolio.tsx b/src/components/sections/Portfolio.tsx
+index db0d45f..a7207a8 100644
+--- a/src/components/sections/Portfolio.tsx
++++ b/src/components/sections/Portfolio.tsx
+@@ -229,6 +229,13 @@ export default function Portfolio({ dict, locale }: { dict: Dictionary; locale:
+ 
+     const panels = wrapperRef.current.querySelectorAll<HTMLElement>(".portfolio-panel");
+     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
++    const isTouch = window.matchMedia("(pointer: coarse)").matches;
++
++    // Skip the scrub-linked slide-up transform on touch devices — the
++    // mobile browser's address bar resizing the viewport mid-scroll
++    // desyncs the animation from actual scroll position, leaving a large
++    // dead scroll zone between panels. Panels just render stacked normally.
++    if (prefersReduced || isTouch) return;
+ 
+     const ctx = gsap.context(() => {
+       panels.forEach((panel, i) => {
+-- 
+2.43.0
+
