@@ -13,6 +13,12 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
   useEffect(() => {
     if (typeof window === "undefined") return;
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+    // Touch devices keep native scrolling — Lenis's momentum fights the
+    // browser's own rubber-banding and dynamic address bar, which desyncs
+    // scroll position from GSAP ScrollTrigger and leaves dead scroll zones.
+    if (prefersReduced || isTouch) return;
 
     const lenis = new Lenis({
       duration: 1.2,

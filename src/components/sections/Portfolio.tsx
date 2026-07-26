@@ -229,6 +229,13 @@ export default function Portfolio({ dict, locale }: { dict: Dictionary; locale: 
 
     const panels = wrapperRef.current.querySelectorAll<HTMLElement>(".portfolio-panel");
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+
+    // Skip the scrub-linked slide-up transform on touch devices — the
+    // mobile browser's address bar resizing the viewport mid-scroll
+    // desyncs the animation from actual scroll position, leaving a large
+    // dead scroll zone between panels. Panels just render stacked normally.
+    if (prefersReduced || isTouch) return;
 
     const ctx = gsap.context(() => {
       panels.forEach((panel, i) => {
