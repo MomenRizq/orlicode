@@ -44,8 +44,8 @@ export default function Contact({ dict }: { dict: Dictionary }) {
 
           <div className="flex flex-col gap-4">
             {[
-              { icon: FiMail, label: dict.contact.email_label, value: "hello@orlicode.com", href: "mailto:hello@orlicode.com" },
-              { icon: FiPhone, label: dict.contact.phone_label, value: "+1 (800) ORL-CODE", href: "tel:+18000000000" },
+              { icon: FiMail, label: dict.contact.email_label, value: "it@orlignsa.com", href: "mailto:it@orlignsa.com" },
+              { icon: FiPhone, label: dict.contact.phone_label, value: "+966558351080", href: "tel:+966558351080" },
             ].map(({ icon: Icon, label, value, href }) => (
               <a key={href} href={href} className="group flex items-center gap-4">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 text-ink-muted transition-all duration-200 group-hover:border-brand-violet/40 group-hover:bg-brand-violet/10 group-hover:text-brand-glow">

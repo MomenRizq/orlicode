@@ -60,8 +60,8 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
           {/* Contact */}
           <div className="flex flex-col gap-3">
             <span className="text-xs font-bold uppercase tracking-widest text-ink-faint">{dict.footer.contact_title}</span>
-            <a href="mailto:hello@orlicode.com" className="text-sm text-ink-muted transition-colors hover:text-ink">hello@orlicode.com</a>
-            <a href="tel:+18000000000" className="text-sm text-ink-muted transition-colors hover:text-ink">+1 (800) ORL-CODE</a>
+            <a href="mailto:it@orlignsa.com" className="text-sm text-ink-muted transition-colors hover:text-ink">it@orlignsa.com</a>
+            <a href="tel:+966558351080" className="text-sm text-ink-muted transition-colors hover:text-ink">+966558351080</a>
           </div>
         </div>
 
